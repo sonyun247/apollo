@@ -13,6 +13,6 @@ const Detail = () => {
     const { loading, error, data } = useQuery(GET_PERSON, { variables: { id: +id } });
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :</p>;
-    return data.person.name;
+    return data?.person?.name;
 }
 export default Detail;

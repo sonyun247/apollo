@@ -11,7 +11,7 @@ const Home = () => {
     const { loading, error, data } = useQuery(GET_PEOPLE);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :</p>;
-    return data.people.map((person => (
+    return data?.people?.map((person => (
         <Link to={`/${person.id}`}>
             <div key={person.id}>
                 <p>

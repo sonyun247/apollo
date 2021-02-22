@@ -1,4 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
+import { Link } from "react-router-dom";
 
 const GET_PEOPLE = gql`
 query{
@@ -11,11 +12,13 @@ const Home = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :</p>;
     return data.people.map((person => (
-        <div key={person.id}>
-            <p>
-                {person.name}
-            </p>
-        </div>
+        <Link to={`/${person.id}`}>
+            <div key={person.id}>
+                <p>
+                    {person.name}
+                </p>
+            </div>
+        </Link >
     )))
 }
 
